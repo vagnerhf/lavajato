@@ -23,7 +23,9 @@ class IndexController extends AbstractActionController
     
     public function indexAction()
     {
-        $corruptos = [];
+        $corruptos = $this->sm
+        ->get('CorruptoTable')
+        ->getAll();
         return new ViewModel([
             'corruptos' => $corruptos
         ]);
@@ -31,7 +33,15 @@ class IndexController extends AbstractActionController
     
     public function editAction()
     {
-        return new ViewModel();
+        $codigo = $this->params('codigo');
+        
+        $corrupto = $this->sm
+        ->get('CorruptoTable')
+        ->get($codigo);
+        
+        return new ViewModel([
+            'corrupto' => $corrupto
+        ]);
     }
     
     public function saveAction()
@@ -43,11 +53,18 @@ class IndexController extends AbstractActionController
         ->save($corrupto);
         
         $this->redirect()->toRoute('corrupto');
-        
-        
+          
     }
     
-    
+    public function deleteAction()
+    {
+        $codigo = $this->params('codigo');
+        
+        $this->sm->get('CorruptoTable')
+        ->delete($codigo);
+        
+        $this->redirect()->toRoute('corrupto');        
+    }
     
     
     

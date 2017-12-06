@@ -1,8 +1,10 @@
 <h1>Inclusão de corrupto</h1>
 <form action="<?=$this->url('corrupto',
     ['action'=>'save'])?>" method="post">
-Nome: <input type="text" name="nome">
-<input type="hidden" name="codigo">
+Nome: <input type="text" name="nome"
+value="<?=$this->corrupto->nome?>">
+<input type="hidden" name="codigo"
+value="<?=$this->corrupto->codigo?>">
 <input type="submit" value="gravar">
 </form>
 <a href="<?=$this->url('corrupto')?>">
