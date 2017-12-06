@@ -1,0 +1,13 @@
+<h1>Cadastro de Corruptos</h1>
+<a href="<?=$this->url('corrupto',['action' => 'edit'])?>">Incluir corrupto</a>
+<table>
+<thead>
+<tr>
+<th>Código</th>
+<th>Nome</th>
+</tr>
+</thead>
+<tbody>
+<?=$this->partialLoop('corruptos.phtml',$this->corruptos)?>
+</tbody>
+</table>

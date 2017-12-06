@@ -13,4 +13,21 @@
 
 return [
     // ...
+    'db' => [
+        'driver' => 'Pdo_Mysql',
+        'host' => 'localhost',
+        'database' => 'lavajato'
+    ],
+    'service_manager' => [
+        'factories' => [
+            'DbAdapter' => 
+            'Zend\Db\Adapter\AdapterServiceFactory' 
+        ]
+    ]
 ];
+
+
+
+
+
+
